@@ -196,7 +196,7 @@ function predictPneumoniaStage(childFever, adultFever, otherSymptoms) {
     // If fever is present, change stage to Chronic
     if (childFever || adultFever) {
         stage = "Diagnosis: Chronic Pneumonia" + "<br>" +
-            "Your pneumonia is chronic, indicating a persistent or recurring condition.It is crucial to follow a long - term treatment plan and regularly consult with your healthcare provider to manage symptoms and prevent exacerbations." +
+            "Your pneumonia is chronic, indicating a persistent or recurring condition.It is crucial to follow a long - term treatment plan and regularly consult with your healthcare provider to manage symptoms and prevent exacerbations." + "<br>" +
             " Note: Chronic pneumonia requires ongoing medical supervision to monitor, for potential complications and to adjust treatment as necessary ";
     }
 
@@ -205,7 +205,7 @@ function predictPneumoniaStage(childFever, adultFever, otherSymptoms) {
         otherSymptoms.includes("Bluish lips") || otherSymptoms.includes("Unconsciousness") ||
         otherSymptoms.includes("Hypothermia")) {
         stage = "Diagnosis: Severe Pneumonia" + "<br>" +
-            "Your pneumonia is severe, necessitating immediate medical attention and possibly hospitalization.Intensive treatment, including antibiotics and supportive care, is essential to manage this condition." +
+            "Your pneumonia is severe, necessitating immediate medical attention and possibly hospitalization.Intensive treatment, including antibiotics and supportive care, is essential to manage this condition." + "<br>" +
             " Note: Severe pneumonia can be life - threatening, prompt and aggressive treatment is critical to improve outcomes.";
     } else if (otherSymptoms.includes("Chest pain") || otherSymptoms.includes("Fever") ||
         otherSymptoms.includes("Rapid breathing") || otherSymptoms.includes("Difficulty breathing") ||
@@ -214,13 +214,13 @@ function predictPneumoniaStage(childFever, adultFever, otherSymptoms) {
         otherSymptoms.includes("Wheezing") || otherSymptoms.includes("Confusion") ||
         otherSymptoms.includes("Pleurisy") || otherSymptoms.includes("Muscle pain")) {
         stage = "Diagnosis: Moderate Pneumonia" + "<br>" +
-            "Your pneumonia is moderate, requiring diligent home care and possibly prescription medication.Follow your doctor 's advice closely, including completing any prescribed antibiotic course and monitoring your symptoms." +
+            "Your pneumonia is moderate, requiring diligent home care and possibly prescription medication.Follow your doctor 's advice closely, including completing any prescribed antibiotic course and monitoring your symptoms." + "<br>" +
             " Note: Moderate pneumonia, while not immediately life - threatening, can worsen if not properly managed, so adhering to treatment and follow - up care is vital.";
     } else if (otherSymptoms.includes("Loss of appetite") || otherSymptoms.includes("Unable to feed/drink") ||
         otherSymptoms.includes("Convulsions")) {
         stage = "Diagnosis: Early Stage Pneumonia" + "<br>" +
-            "Your pneumonia is at an early stage.You should take proper care by resting, staying hydrated, and avoiding exposure to smoke and pollutants." +
-            "see your doctor for further evaluation and appropriate treatment." +
+            "Your pneumonia is at an early stage.You should take proper care by resting, staying hydrated, and avoiding exposure to smoke and pollutants." + "<br>" +
+            "see your doctor for further evaluation and appropriate treatment." + "<br>" +
             " Note:Early diagnosis and prompt treatment can prevent complications and lead to a quicker recovery.";
     }
     return stage;
