@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pneumonia Diagnosis System</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pneumonia Diagnosis System</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    theme: jekyll-theme-minimal
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+
+
+                <h1>Pneumonia Diagnosis System</h1>
+
+                <div class="container">
+
+                    <form id="predictionForm">
+                        <label for="exampleFormControlInput1" class="badge badge-primary">Name:</label>
+
+                        <input type="text" class="form-control" id="name" required>
+
+                        <label for="age" for="exampleFormControlInput1" class="badge badge-primary">Age:</label>
+
+                        <input type="number" id="age" class="form-control" required onchange="toggleFieldset()">
+
+                        <label for="address" class="badge badge-primary">Address:</label>
+                        <input type="text" id="address" class="form-control" required>
+                        <h2>Symptoms:</h2>
+                        <p>(Select all that apply)</p>
+
+
+
+
+
+
+                        <!-- Children Symptoms -->
+                        <span class="border-primary">
+                        <fieldset id="children">
+                            <legend>Children below 19 Years</legend>
+                            <input type="checkbox" id="childCough" value="Cough">
+                            <label for="childCough">Cough</label><br>
+                            <input type="checkbox" id="childFever" value="Fever">
+                            <label for="childFever">Fever</label><br>
+                            <input type="checkbox" id="childRapidBreathing" value="Rapid breathing">
+                            <label for="childRapidBreathing">Rapid breathing</label><br>
+                            <input type="checkbox" id="childDifficultyBreathing" value="Difficulty breathing">
+                            <label for="childDifficultyBreathing">Difficulty breathing</label><br>
+                            <input type="checkbox" id="childLossOfAppetite" value="Loss of appetite">
+                            <label for="childLossOfAppetite">Loss of appetite</label><br>
+                            <input type="checkbox" id="childFatigue" value="Fatigue">
+                            <label for="childFatigue">Fatigue</label><br>
+                            <input type="checkbox" id="childChestPain" value="Chest pain">
+                            <label for="childChestPain">Chest pain</label><br>
+                            <input type="checkbox" id="childChills" value="Chills">
+                            <label for="childChills">Chills</label><br>
+                            <input type="checkbox" id="childHeadache" value="Headache">
+                            <label for="childHeadache">Headache</label><br>
+                            <input type="checkbox" id="childNauseaVomiting" value="Nausea or vomiting">
+                            <label for="childNauseaVomiting">Nausea or vomiting</label><br>
+                            <input type="checkbox" id="childWheezing" value="Wheezing">
+                            <label for="childWheezing">Wheezing</label><br>
+                            <input type="checkbox" id="childBluishLips" value="Bluish lips">
+                            <label for="childBluishLips">Bluish lips</label><br>
+                            <input type="checkbox" id="childConfusion" value="Confusion">
+                            <label for="childConfusion">Confusion</label><br>
+                            <input type="checkbox" id="childCyanosis" value="Cyanosis">
+                            <label for="childCyanosis">Cyanosis</label><br>
+                            <input type="checkbox" id="childPleurisy" value="Pleurisy">
+                            <label for="childPleurisy">Pleurisy</label><br>
+                            <input type="checkbox" id="childMusclePain" value="Muscle pain">
+                            <label for="childMusclePain">Muscle pain</label><br>
+                            <input type="checkbox" id="childUnconsciousness" value="Unconsciousness">
+                            <label for="childUnconsciousness">Unconsciousness</label><br>
+                            <input type="checkbox" id="childHypothermia" value="Hypothermia">
+                            <label for="childHypothermia">Hypothermia</label><br>
+                            <input type="checkbox" id="childConvulsions" value="Convulsions">
+                            <label for="childConvulsions">Convulsions</label><br>
+                            <input type="checkbox" id="childUnableToFeedDrink" value="Unable to feed/drink">
+                            <label for="childUnableToFeedDrink">Unable to feed/drink</label><br>
+                        </fieldset>
+                    </span>
+                        <!-- Adult Symptoms -->
+                        <span class="border-primary">
+                                <fieldset id="adult">
+                                    <legend>Adults above 19 Years</legend>
+                                    <input type="checkbox" id="adultCough" value="Cough">
+                                    <label for="adultCough">Cough</label><br>
+                                    <input type="checkbox" id="adultFever" value="Fever">
+                                    <label for="adultFever">Fever</label><br>
+                                    <input type="checkbox" id="adultRapidBreathing" value="Rapid breathing">
+                                    <label for="adultRapidBreathing">Rapid breathing</label><br>
+                                    <input type="checkbox" id="adultDifficultyBreathing" value="Difficulty breathing">
+                                    <label for="adultDifficultyBreathing">Difficulty breathing</label><br>
+                                    <input type="checkbox" id="adultFatigue" value="Fatigue">
+                                    <label for="adultFatigue">Fatigue</label><br>
+                                    <input type="checkbox" id="adultChestPain" value="Chest pain">
+                                    <label for="adultChestPain">Chest pain</label><br>
+                                    <input type="checkbox" id="adultChills" value="Chills">
+                                    <label for="adultChills">Chills</label><br>
+                                    <input type="checkbox" id="adultHeadache" value="Headache">
+                                    <label for="adultHeadache">Headache</label><br>
+                                    <input type="checkbox" id="adultNauseaVomiting" value="Nausea or vomiting">
+                                    <label for="adultNauseaVomiting">Nausea or vomiting</label><br>
+                                    <input type="checkbox" id="adultWheezing" value="Wheezing">
+                                    <label for="adultWheezing">Wheezing</label><br>
+                                    <input type="checkbox" id="adultBluishLips" value="Bluish lips">
+                                    <label for="adultBluishLips">Bluish lips</label><br>
+                                    <input type="checkbox" id="adultConfusion" value="Confusion">
+                                    <label for="adultConfusion">Confusion</label><br>
+                                    <input type="checkbox" id="adultCyanosis" value="Cyanosis">
+                                    <label for="adultCyanosis">Cyanosis</label><br>
+                                    <input type="checkbox" id="adultPleurisy" value="Pleurisy">
+                                    <label for="adultPleurisy">Pleurisy</label><br>
+                                    <input type="checkbox" id="adultMusclePain" value="Muscle pain">
+                                    <label for="adultMusclePain">Muscle pain</label><br>
+                                    <input type="checkbox" id="adultUnconsciousness" value="Unconsciousness">
+                                    <label for="adultUnconsciousness">Unconsciousness</label><br>
+                                    <input type="checkbox" id="adultHypothermia" value="Hypothermia">
+                                    <label for="adultHypothermia">Hypothermia</label><br>
+                                    <input type="checkbox" id="adultConvulsions" value="Convulsions">
+                                    <label for="adultConvulsions">Convulsions</label><br>
+                                    <input type="checkbox" id="adultUnableToFeedDrink" value="Unable to feed/drink">
+                                    <label for="adultUnableToFeedDrink">Unable to feed/drink</label><br>
+                                </fieldset>
+                      </span>
+                        <button type="submit" class="btn btn-outline-success">Diagnose</button>
+                        <button type="submit" class="btn btn-outline-danger" id="logoutBtn">Logout</button>
+                    </form>
+
+                    <div class="card mt-5">
+                        <div class="card-body">
+
+                            <h5 class="card-title">Pneumonia Prediction Result</h5>
+
+                            <div class="alert alert-success" role="alert" id="result">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <hr>
+    <br><br>
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+
+                    <p>Email:<br> info@Dr-Ibrahim.com</p>
+                    <p>Phone:<br> +234 7040 785 134</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <span class="border border-success"><a href="../bayes/prevention.html">How to prevent Pneumonia</a></span>
+                        </li>
+
+                        <li><a href="https://wa.link/7mnoag">Contact me</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5>Connect on WhatsApp</h5>
+                    <p>Get in touch with us on WhatsApp for instant support</p>
+                    <a href="https://wa.link/7mnoag"><button type="button" class="btn btn-light"><i class="fab fa-whatsapp"></i> Chat Now</button></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="text-center  text-white mt-3">
+            <p>All rights reserved &copy; 2024 Pneumonia Diagnosis System || Ibrahim Aminu Wurma</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
