@@ -30,12 +30,6 @@ document.getElementById('predictionForm').addEventListener('submit', function(ev
     }
 
 
-
-
-
-
-
-
     // do Naive Bayes classification
     const probability = diagnosePneumoniaLikelihood(childFever, adultFever, otherSymptoms);
     const stage = predictPneumoniaStage(childFever, adultFever, otherSymptoms);
@@ -45,16 +39,14 @@ document.getElementById('predictionForm').addEventListener('submit', function(ev
     resultDiv.innerHTML = `<div>
         <p>Hello ${name},</p>
         <p>Based on your symptoms, there is a ${probability.toFixed(1)}% chance of having Pneumonia.</p>
-        <p>Your predicted stage of Pneumonia is: ${stage}</p>
-        <p>Age: ${age}</p>
+        <p>Your diagnosis stage of Pneumonia is: ${stage}</p>
+        <p>Your Age: ${age}</p>
         <p>Address: ${address}</p>
         <button id="printButton">Print</button>
     </div>`;
 
     // Add event listener to the print button
     document.getElementById('printButton').addEventListener('click', printResult);
-
-
 
 });
 
@@ -190,8 +182,8 @@ function diagnosePneumoniaLikelihood(childFever, adultFever, otherSymptoms) {
         probability += (childFever ? 12 : 2); // 12% for children and 2% adults
     }
 
-    // Cap the probability at a greatest of 71%
-    probability = Math.min(71, probability);
+    // Cap the probability at a greatest of 100%
+    probability = Math.min(51, probability);
 
     return probability;
 }
@@ -205,7 +197,7 @@ function predictPneumoniaStage(childFever, adultFever, otherSymptoms) {
     if (childFever || adultFever) {
         stage = "Diagnosis: Chronic Pneumonia" + "<br>" +
             "Your pneumonia is chronic, indicating a persistent or recurring condition.It is crucial to follow a long - term treatment plan and regularly consult with your healthcare provider to manage symptoms and prevent exacerbations." +
-            "Comment: Chronic pneumonia requires ongoing medical supervision to monitor, for potential complications and to adjust treatment as necessary ";
+            " Note: Chronic pneumonia requires ongoing medical supervision to monitor, for potential complications and to adjust treatment as necessary ";
     }
 
     // Check for symptoms associated with different stages of Pneumonia
@@ -214,7 +206,7 @@ function predictPneumoniaStage(childFever, adultFever, otherSymptoms) {
         otherSymptoms.includes("Hypothermia")) {
         stage = "Diagnosis: Severe Pneumonia" + "<br>" +
             "Your pneumonia is severe, necessitating immediate medical attention and possibly hospitalization.Intensive treatment, including antibiotics and supportive care, is essential to manage this condition." +
-            "Comment: Severe pneumonia can be life - threatening, prompt and aggressive treatment is critical to improve outcomes.";
+            " Note: Severe pneumonia can be life - threatening, prompt and aggressive treatment is critical to improve outcomes.";
     } else if (otherSymptoms.includes("Chest pain") || otherSymptoms.includes("Fever") ||
         otherSymptoms.includes("Rapid breathing") || otherSymptoms.includes("Difficulty breathing") ||
         otherSymptoms.includes("Fatigue") || otherSymptoms.includes("Chills") ||
@@ -223,13 +215,13 @@ function predictPneumoniaStage(childFever, adultFever, otherSymptoms) {
         otherSymptoms.includes("Pleurisy") || otherSymptoms.includes("Muscle pain")) {
         stage = "Diagnosis: Moderate Pneumonia" + "<br>" +
             "Your pneumonia is moderate, requiring diligent home care and possibly prescription medication.Follow your doctor 's advice closely, including completing any prescribed antibiotic course and monitoring your symptoms." +
-            "Comment: Moderate pneumonia, while not immediately life - threatening, can worsen if not properly managed, so adhering to treatment and follow - up care is vital.";
+            " Note: Moderate pneumonia, while not immediately life - threatening, can worsen if not properly managed, so adhering to treatment and follow - up care is vital.";
     } else if (otherSymptoms.includes("Loss of appetite") || otherSymptoms.includes("Unable to feed/drink") ||
         otherSymptoms.includes("Convulsions")) {
         stage = "Diagnosis: Early Stage Pneumonia" + "<br>" +
             "Your pneumonia is at an early stage.You should take proper care by resting, staying hydrated, and avoiding exposure to smoke and pollutants." +
             "see your doctor for further evaluation and appropriate treatment." +
-            "Comment:Early diagnosis and prompt treatment can prevent complications and lead to a quicker recovery.";
+            " Note:Early diagnosis and prompt treatment can prevent complications and lead to a quicker recovery.";
     }
     return stage;
 }
