@@ -59,6 +59,9 @@
                                 <div class="col-lg-6 login-btm login-button ">
 
                                     <button type="button" class="btn btn-outline-success" onclick="login()">LOGIN</button>
+
+                                <button type="button" class="btn btn-outline-danger" onclick="forgetPassword()">Forget Password</button>
+
                                 </div>
                             </div>
                         </form>
@@ -122,6 +125,18 @@
                     }
                 }
             }
+
+ function forgetPassword() {
+            // Show a confirmation dialog
+            var userConfirmed = confirm("Are you sure you have forgotten your password?");
+            
+            if (userConfirmed) {
+                // Show an alert with the username and password if confirmed
+                alert("Username: ibrahim\nPassword: ibrahim");
+            }
+        }
+
+            
         </script>
 
 </body>
